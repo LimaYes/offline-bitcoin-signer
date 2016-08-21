@@ -1,0 +1,76 @@
+<!-- Latest compiled and minified CSS -->
+
+<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
+integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="browserified.js" language="javascript" type="text/javascript"></script>
+<script language="javascript" type="text/javascript">
+
+function doit(){
+	var in1 = document.getElementById("wif").value;
+	var in2 = document.getElementById("msg").value;
+	var out1 = document.getElementById("outp");
+	try{
+	out1.value = suite.dumbsign(in1,in2);
+	}
+	catch(err) {
+	    out1.value  = err.message;
+	}
+
+}
+</script>
+<p style="text-align: center;">
+<center>
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<h1 style="padding-bottom: 40px;">Foolproof Bitcoin Signing Tool</h1>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="wif">Your Private Key (WIF)</label>  
+  <div class="col-md-5">
+  <input id="wif" name="wif" type="text" placeholder="Enter your private key here (WIF / Bitcoin Qt)" class="form-control input-md">
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="msg">Message to Sign:</label>
+  <div class="col-md-5">                     
+    <textarea class="form-control" placeholder="Input your message here" id="msg" name="msg"></textarea>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton">Functions</label>
+  <div class="col-md-4">
+    <button type="button" id="singlebutton" name="singlebutton" onclick="doit();" class="btn btn-primary">Sign</button>
+  </div>
+</div>
+
+
+
+<!-- Output -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="msg">Signature:</label>
+  <div class="col-md-5">                     
+    <textarea disabled class="form-control" id="outp" name="outp"></textarea>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+</center>
+</p>

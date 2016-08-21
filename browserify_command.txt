@@ -1,0 +1,1 @@
+browserify sign.js -o browserified.js --s suite
